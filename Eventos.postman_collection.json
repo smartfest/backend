@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "a90fd242-bdad-4449-9482-a9d0645c8d78",
+		"name": "Eventos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Actualizar Evento",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "titulo",
+							"value": "titulo actualizado",
+							"type": "default"
+						},
+						{
+							"key": "descripcion",
+							"value": "descripcion actualizada",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/evento/636ffeaf20867800f96d5983",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"evento",
+						"636ffeaf20867800f96d5983"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar un Evento",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/evento/636db34a750fa0912decdd2e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"evento",
+						"636db34a750fa0912decdd2e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Eventos en un Rango skip limit",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "skip",
+							"value": "1",
+							"type": "default"
+						},
+						{
+							"key": "limit",
+							"value": "3",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/eventos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"eventos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nuevo Evento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/54299/OneDrive/Escritorio/asado.jpg"
+						},
+						{
+							"key": "titulo",
+							"value": "Un titulo",
+							"type": "default"
+						},
+						{
+							"key": "fecha_evento",
+							"value": "2022-11-05",
+							"type": "default"
+						},
+						{
+							"key": "horario_inicio",
+							"value": "2022-11-05 13:20:00",
+							"type": "default"
+						},
+						{
+							"key": "descripcion",
+							"value": "una descripcion",
+							"type": "default"
+						},
+						{
+							"key": "flyer",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "id_usuario",
+							"value": "12",
+							"type": "default"
+						},
+						{
+							"key": "redes_sociales",
+							"value": "[{ \"red\":\"facebook\" ,\"link\":\"facebook.com\"},{\"red\":\"twiter\", \"link\":\"twiter.com\" }]",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/saveEvento",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"saveEvento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Evento",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/evento/636ffeaf20867800f96d5983",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"evento",
+						"636ffeaf20867800f96d5983"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
