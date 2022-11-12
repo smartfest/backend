@@ -120,11 +120,21 @@ function saveEvento(req, res,){
       
     });
 }
+function deleteEvento(req,res){
+    let eventoId=req.params.eventoId
+    Evento.findById(eventoId, (err,evento) =>{
 
+        if (err) res.status(500).send('Error al borrar el evento, no existe')
+        evento.remove(err => {
+            if (err) res.status(404).send({message:'El evento no  se ha podido eliminar'})
+            res.status(200).send({message:'El evento se ha eliminó correctamente'})
+        })
+    })
+}
 module.exports= {
     saveEvento,
     updateEvento,
     getEvento,
     getEventos,
-
+    deleteEvento
 }

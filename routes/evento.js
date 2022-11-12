@@ -23,7 +23,7 @@ route_api.get('/evento/:eventoId',EventoCtrl.getEvento)
 //usa skip, limit
 route_api.get('/eventos', EventoCtrl.getEventos) //asociado a la funcion de callback: getEventos
 
-
+route_api.delete('/evento/:eventoId',EventoCtrl.deleteEvento )
 //route_api.post('/uploadFile1', EventoCtrl.uploadFile1)
 //route_api.post('/uploadFile2', EventoCtrl.uploadFile2)
 module.exports = route_api
