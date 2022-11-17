@@ -6,12 +6,13 @@ const UserCtrl=require('../controllers/user')
 const EventoCtrl=require('../controllers/evento')
 const auth = require('../middlewares/auth')
 const route_api= express.Router()
+const {validateCreate} =require('../validators/evento')
 
 
 
 //rutas a los accesspoint de los eventos:
 //Crear un evento:
-route_api.post( '/evento',EventoCtrl.saveEvento ) //asociado a la funcion de callback: getEventos
+route_api.post( '/evento',validateCreate,EventoCtrl.saveEvento ) //asociado a la funcion de callback: getEventos
 
 //Actualizar un evento:
 route_api.put('/evento/:eventoId', EventoCtrl.updateEvento)
