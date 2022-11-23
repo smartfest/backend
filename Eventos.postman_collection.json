@@ -11,22 +11,47 @@
 				"method": "PUT",
 				"header": [],
 				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/54299/OneDrive/Escritorio/uñas/Imagen de WhatsApp 2022-11-12 a las 20.22.40.jpg"
+						},
 						{
 							"key": "titulo",
-							"value": "titulo actualizado",
+							"value": "Nuevo Titulo 222",
+							"type": "default"
+						},
+						{
+							"key": "fecha_evento",
+							"value": "2023-07-23",
+							"type": "default"
+						},
+						{
+							"key": "horario_inicio",
+							"value": "13:13:13",
 							"type": "default"
 						},
 						{
 							"key": "descripcion",
-							"value": "descripcion actualizada",
+							"value": "Nueva Descripcion",
+							"type": "text"
+						},
+						{
+							"key": "id_usuario",
+							"value": "666",
+							"type": "default"
+						},
+						{
+							"key": "redes_sociales",
+							"value": "[{ \"red\":\"facebook\" ,\"link\":\"facebooknuevo.com\"},{\"red\":\"twiter\", \"link\":\"twiternuevo.com\" }]",
 							"type": "default"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:3003/api/evento/636ffeaf20867800f96d5983",
+					"raw": "http://localhost:3003/api/evento/637ba32007b85705e62e8493",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -35,7 +60,7 @@
 					"path": [
 						"api",
 						"evento",
-						"636ffeaf20867800f96d5983"
+						"637ba32007b85705e62e8493"
 					]
 				}
 			},
@@ -47,7 +72,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3003/api/evento/636db34a750fa0912decdd2e",
+					"raw": "http://localhost:3003/api/evento/637ba32007b85705e62e8493",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -56,13 +81,13 @@
 					"path": [
 						"api",
 						"evento",
-						"636db34a750fa0912decdd2e"
+						"637ba32007b85705e62e8493"
 					]
 				}
 			},
 			"response": []
 		},
-		{
+		{ 
 			"name": "Buscar Eventos en un Rango skip limit",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -75,12 +100,12 @@
 					"urlencoded": [
 						{
 							"key": "skip",
-							"value": "1",
+							"value": "3",
 							"type": "default"
 						},
 						{
 							"key": "limit",
-							"value": "3",
+							"value": "2",
 							"type": "default"
 						}
 					]
@@ -111,21 +136,21 @@
 						{
 							"key": "file",
 							"type": "file",
-							"src": "/C:/Users/54299/OneDrive/Escritorio/asado.jpg"
+							"src": "/C:/Users/54299/OneDrive/Escritorio/_MG_6101.webp"
 						},
 						{
 							"key": "titulo",
-							"value": "Un titulo",
+							"value": "dfsdfsd",
 							"type": "default"
 						},
 						{
 							"key": "fecha_evento",
-							"value": "2022-11-05",
+							"value": "2022-11-23",
 							"type": "default"
 						},
 						{
 							"key": "horario_inicio",
-							"value": "2022-11-05 13:20:00",
+							"value": "13:20:00",
 							"type": "default"
 						},
 						{
@@ -140,7 +165,7 @@
 						},
 						{
 							"key": "id_usuario",
-							"value": "12",
+							"value": "234",
 							"type": "default"
 						},
 						{
@@ -151,7 +176,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:3003/api/saveEvento",
+					"raw": "http://localhost:3003/api/evento",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -159,7 +184,7 @@
 					"port": "3003",
 					"path": [
 						"api",
-						"saveEvento"
+						"evento"
 					]
 				}
 			},
