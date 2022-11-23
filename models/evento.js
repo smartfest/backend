@@ -13,9 +13,7 @@ const EventoSchema= Schema({
     create_date:{type:Date, default: Date.now()},
     create_lastup:Date,
     id_usuario:Number,
-    estado:{type: Number, default:1},
-
-   
+    estado:{type: Number, default:1},   
     })
     module.exports = mongoose.model('Evento',EventoSchema)
     
