@@ -14,6 +14,7 @@ const EventoSchema= Schema({
     create_lastup:Date,
     id_usuario:Number,
     estado:{type: Number, default:1},   
+    direccion:String,
     })
     module.exports = mongoose.model('Evento',EventoSchema)
     

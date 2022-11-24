@@ -39,17 +39,14 @@ function crearEvento(evento) {
     data.append("horario_inicio", evento.horario_inicio)
     data.append("redes_sociales", evento.redes_sociales)
     data.append("flyer", "")
-
     console.log(evento)
     let file=evento.file
     fetch(env.API + `/evento`, {
-        method: "POST", headers: {
-            'Content-Type': 'multipart/form-data; boundary=<calculated when request is sent>'
-        },body:data
+        method: "POST",
+        body:data
     })
         .then(res => {console.log(res)})
         .catch(exp => { console.log("Consuslta POST Rechazada", exp) })
-
 }
 async function getEventoById(id_evento) {
     console.log(id_evento)

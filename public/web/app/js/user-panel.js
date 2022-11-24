@@ -41,8 +41,6 @@ window.delete_event=function (id_evento){
 }
 
 window.save_event = function () {
-
-
   const form = document.getElementById("form");
   form_data = new FormData(form)
   let date = form_data.get("fecha_inicio")
@@ -57,7 +55,8 @@ window.save_event = function () {
     fecha_evento:fecha,
     horario_inicio:date.substring(index+1)+":00",
     descripcion:form_data.get("descripcion"),
-    redes_sociales:[{ "red":"facebook" ,"link":"facebook.com"},{"red":"twiter", "link":"twiter.com" }]
+    redes_sociales:'[{ "red":"facebook" ,"link":"facebook.com"},{"red":"twiter", "link":"twiter.com" }]',
+    
   }
   crearEvento(evento)
 

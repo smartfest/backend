@@ -63,14 +63,14 @@ function getEventos(req, res){
         res.status(200).send({eventos})
     }).skip(skip).limit(limit)
 }
-function saveEvento(req, res,next){        
+function saveEvento(req, res,next){ 
         const extension=req.file.originalname.slice(req.file.originalname.lastIndexOf('.'))                
         let nombre_archivo=Date.now()+extension
         const newpath = `./public/web/data/eventos/${nombre_archivo}`;        
         fs.writeFileSync(newpath, req.file.buffer);       
-        let in_redes_sociales=[]       
+        let in_redes_sociales=[]              
         if (typeof req.body.redes_sociales === 'string' || req.body.redes_sociales instanceof String)  
-            in_redes_sociales = JSON.parse(req.body.redes_sociales);   
+            in_redes_sociales = JSON.parse(req.body.redes_sociales);  //JSON.stringify(req.body.redes_sociales); 
         let obj_evento=new Evento()  
         obj_evento.titulo=req.body.titulo
         obj_evento.fecha_evento=req.body.fecha_evento
@@ -78,13 +78,17 @@ function saveEvento(req, res,next){
         let fecha_hora=req.body.fecha_evento+' '+req.body.horario_inicio                
         obj_evento.horario_inicio=fecha_hora
         obj_evento.descripcion=req.body.descripcion
+        obj_evento.direccion=req.body.direccion        
         obj_evento.flyer=nombre_archivo     
         obj_evento.create_date=Date.now()  
         obj_evento.create_lastup=obj_evento.create_date
         obj_evento.id_usuario=req.body.id_usuario
         obj_evento.redes_sociales=in_redes_sociales                
         obj_evento.save((err,eventoStored)=>{
-            if (err) return res.status(500).send({message:'Error al guardar el evento en la base de datos'+err})    
+            if (err) {              
+              return res.status(500).send({message:'Error al guardar el evento en la base de datos'+err})  
+
+            }            
             return res.status(200).send({obj_evento:eventoStored})
         })                    
 }
