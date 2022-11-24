@@ -1,7 +1,4 @@
 
-
-
-
 const env = {
     "URL": "https://raw.githubusercontent.com/smartfest/frontend/developer/data/eventos.json",
     "API": 'http://localhost:3003/api'

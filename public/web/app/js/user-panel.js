@@ -88,7 +88,7 @@ getEventos().then((data) => {
 function data_tabla() {
   const table = document.getElementById("data_tabla")
 
-  eventos.forEach(evento => {
+  eventos.eventos.forEach(evento => {
     table.innerHTML += (event_table(evento));
   });
 

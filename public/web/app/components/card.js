@@ -1,6 +1,6 @@
 function card(evento){
     return `<div class="card" onclick="go(${evento._id})" >
-                <div class="image" style="background-image: url(${evento.flyer})">
+                <div class="image" style="background-image: url(../../../uploads/eventos/${evento.flyer})">
                 </div><h2>${evento.titulo}</h2>
                     <div class="card-content">
                     <h2></h2>
