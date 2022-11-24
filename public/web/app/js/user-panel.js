@@ -65,16 +65,21 @@ window.save_event = function () {
 
 }
 
-window.edit_event = function (id_evento) { alert("aca estamos");
+window.edit_event = function (id_evento) { 
   const form = document.getElementById("form");
   let form_data = new FormData(form)
-  getEventoById(id_evento).then(e => {
-    e=e.obj_evento
-   // input_event.ubicacion.value = e.ubicacion
+  getEventoById(id_evento).then(e => { alert(JSON.stringify(e))
+    //alert(e.descripcion);
+    //e=e.obj_evento   
+    alert(e.redes_sociales);
+   let las_redes=JSON.stringify(e.redes_sociales);
+   
    input_event.titulo.value = e.titulo;
-  //  input_event.fecha_inicio.value= e.fecha_evento
-    //input_event.flyer.value=e.flyer
-  input_event.descripcion.value=e.descripcion
+   input_event.ubicacion.value= e.direccion;
+   input_event.descripcion.value=e.descripcion;
+   input_event.fecha_inicio.value= e.fecha_evento;
+   input_event.flyer.value=e.flyer;
+   
   })
 
 

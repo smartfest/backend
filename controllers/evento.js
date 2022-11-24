@@ -32,6 +32,7 @@ function updateEvento(req,res){
         horario_inicio:fecha_hora,
         descripcion:update.descripcion,
         id_usuario:update.id_usuario,
+        direccion:update.direccion,      
         redes_sociales: in_redes_sociales,
         flyer:nombre_archivo,
         create_lastup:Date.now(),
