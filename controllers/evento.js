@@ -12,7 +12,7 @@ function updateEvento(req,res){
       if (!eventoReturn) return res.status(404).send({message:'El evento no existe'})           
       //eliminamos la imagen del flyer:
       try {
-        fs.unlinkSync('./public/uploads/eventos/'+eventoReturn.flyer)        
+        fs.unlinkSync('./public/web/data/eventos/'+eventoReturn.flyer)        
       } catch(err) {        
         return res.status(404).send({message:'Problemas en la edicion del archivo'})  
       }            
@@ -20,7 +20,7 @@ function updateEvento(req,res){
     let update=req.body        
     const extension=req.file.originalname.slice(req.file.originalname.lastIndexOf('.'))                
     let nombre_archivo=Date.now()+extension
-    const newpath = `./public/uploads/eventos/${nombre_archivo}`;   
+    const newpath = `./public/web/data/eventos/${nombre_archivo}`;   
     fs.writeFileSync(newpath, req.file.buffer);    
     let fecha_hora=req.body.fecha_evento+' '+req.body.horario_inicio 
     let in_redes_sociales=[]
