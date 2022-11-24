@@ -49,7 +49,6 @@ function crearEvento(evento) {
         .catch(exp => { console.log("Consuslta POST Rechazada", exp) })
 }
 async function getEventoById(id_evento) {
-    console.log(id_evento)
     var data = fetch(env.API + '/evento/'+ id_evento)
         .then(respuesta => respuesta.json())
         .then(respuesta => {

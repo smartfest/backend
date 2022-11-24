@@ -99,15 +99,18 @@
                       
                         <hr>
                         <div class="mb-3">
+                            
                             <label for="" class="form-label">Flyer de evento</label>
                             <input id="flyer" accept="image/png,image/jpeg" type="file" class="form-control"
                                 name="flyer" placeholder="" aria-describedby="fileHelpId">
+                                <br>
+                                <img id="img_edit" class="img_edit" alt="">
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
+                <div id="create|edit" class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="save_event()">Save</button>
+                    <button  type="button" class="btn btn-primary" onclick="save_event()">Save</button>
                 </div>
             </div>
         </div>
