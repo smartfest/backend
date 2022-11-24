@@ -19,7 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
     fecha_inicio: document.getElementById("fecha_incio"),
     descripcion: document.getElementById("descripcion"),
     flyer: document.getElementById("flyer"),
-    tipo_evento: document.getElementById("nombre_evento")
+    tipo_evento: document.getElementById("nombre_evento"),
+    facebook: document.getElementById("facebook"),
+    twitter: document.getElementById("twitter")
   }
 
 
@@ -31,8 +33,8 @@ window.create_event = function (id_evento) {
   input_event.fecha_inicio.value = ""
   input_event.flyer.value = ""
   input_event.descripcion.value=""
-
-
+  input_event.facebook.value="" 
+  input_event.twitter.value="" 
 }
 
 window.delete_event=function (id_evento){
@@ -47,6 +49,7 @@ window.save_event = function () {
   let index = date.search("T")
   let fecha= date.substring(0,index)
 
+  let cad_redes='[{ "red":"facebook" ,"link":"'+form_data.get("facebook")+'"},{"red":"twiter", "link":"'+form_data.get("twitter")+'" }]'  
   const evento = {
     id_usuario:1,
     direccion: form_data.get("direccion_evento"),
@@ -55,14 +58,14 @@ window.save_event = function () {
     fecha_evento:fecha,
     horario_inicio:date.substring(index+1)+":00",
     descripcion:form_data.get("descripcion"),
-    redes_sociales:'[{ "red":"facebook" ,"link":"facebook.com"},{"red":"twiter", "link":"twiter.com" }]',
+    redes_sociales:cad_redes,
     
   }
   crearEvento(evento)
 
 }
 
-window.edit_event = function (id_evento) {
+window.edit_event = function (id_evento) { alert("aca estamos");
   const form = document.getElementById("form");
   let form_data = new FormData(form)
   getEventoById(id_evento).then(e => {
