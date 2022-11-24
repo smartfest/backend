@@ -52,10 +52,11 @@ function crearEvento(evento) {
 
 }
 async function getEventoById(id_evento) {
-    var data = fetch(env.API + '/evento/' + id_evento)
+    console.log(id_evento)
+    var data = fetch(env.API + '/evento/'+ id_evento)
         .then(respuesta => respuesta.json())
         .then(respuesta => {
-            return Promise.resolve(respuesta);
+            return Promise.resolve(respuesta.obj_evento);
         }).catch(() => {
             return Promise.reject(err);
         });
