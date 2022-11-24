@@ -62,6 +62,8 @@ window.save_event = function () {
   crearEvento(evento).then((res) => {
     alert("creado con exito")
     location.reload ()
+  }).catch(errores =>{
+    alert("errores en "+JSON.stringify(errores))
   })
 
 }
@@ -110,11 +112,14 @@ window.edit_save = function (id_evento) {
     redes_sociales: cad_redes,
 
   }
+
   editarEvento(evento, id_evento).then((res) => {
     alert("Editado con exito")
     location.reload ()
   }
-  )
+  ).catch(errores =>{
+    alert("errores en "+JSON.stringify(errores))
+  })
 
 }
 
