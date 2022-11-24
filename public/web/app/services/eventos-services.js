@@ -9,11 +9,15 @@ const env = {
 
 
 async function getEventos() {
-    return await fetch(env.URL, { method: "GET" })
+    let data = new FormData()
+    data.append("skip",0)
+    data.append("limit",6)
+
+    return await fetch(env.API+'/eventos', { method: "GET",headers:{'Content-Type':"application/x-www-form-urlencoded"} ,body:data})
         .then(respuesta => {
             return Promise.resolve(respuesta.json());
-        }).catch(() => {
-            return Promise.reject("No se encontraron eventos");
+        }).catch((e) => {
+            return Promise.reject(e," No se encontraron eventos");
         });
 }
 
