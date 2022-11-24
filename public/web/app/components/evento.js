@@ -10,7 +10,7 @@ function evento(evento) {
 <img class="flyer" src="../../data/eventos/${evento.flyer}" alt=${evento.descripcion}>
 <div class="informacion">
         <div>
-        <h5>Ubicacion: ${evento.ubicacion}</h5>
+        <h5>Ubicacion: ${evento.direccion}</h5>
         <h5>Horario :${horario}</h5>
         <h5>Fecha :${fecha} </h5>
         <img src="../../assets/icons/Facebook.svg" alt="">
