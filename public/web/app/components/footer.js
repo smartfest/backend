@@ -11,8 +11,8 @@ function footer(){
                 <div class="col-lg-6"> 
                   <form action="" method="post"> 
                      <input type="email" name="email">
-                     <input type="submit" value="Suscribete"> 
-                  </form> 
+                     <input type="submit" value="Suscribete" disable=true> 
+                  </form>
                 </div> 
               </div> 
             </div> 

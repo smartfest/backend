@@ -1,7 +1,6 @@
 import { getEventos, getEventoById,crearEvento,status } from '../services/eventos-services.js'
 import { event_table } from '../components/event_table.js'
-
-
+import {evento} from '../components/evento.js'
 var input_event;
 var form_data;
 document.addEventListener("DOMContentLoaded", () => {
@@ -83,6 +82,14 @@ window.edit_event = function (id_evento) {
   })
 
 
+}
+
+window.view_event=function(id){
+  let modal = document.getElementById('modal_view_body')
+  console.log(modal)
+  getEventoById(id).then((event)=>{
+    modal.innerHTML=evento(event)
+  })
 }
 
 var modalId = document.getElementById('modalId');
