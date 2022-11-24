@@ -67,12 +67,13 @@ window.save_event = function () {
 window.edit_event = function (id_evento) { 
   const form = document.getElementById("form");
   let form_data = new FormData(form)
-  getEventoById(id_evento).then(e => { alert(JSON.stringify(e))
+  getEventoById(id_evento).then(e => { //alert(JSON.stringify(e))
     //alert(e.descripcion);
     //e=e.obj_evento   
-    alert(e.redes_sociales);
+    //alert(e.redes_sociales);
    let las_redes=JSON.stringify(e.redes_sociales);
-   
+   alert(las_redes);
+
    input_event.titulo.value = e.titulo;
    input_event.ubicacion.value= e.direccion;
    input_event.descripcion.value=e.descripcion;
