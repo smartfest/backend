@@ -1,8 +1,6 @@
  function event_table(evento){
 
-
     let id=evento._id;
-    "2022-11-27T00:00:00.000Z"
     let index = evento.fecha_evento.search("T")
     let fecha = evento.fecha_evento.substring(0,index)
     let horario = evento.horario_inicio.substring(index+1,index+9)

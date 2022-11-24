@@ -149,7 +149,7 @@ const validateEdit = [
           }
         }
         else {
-          throw new Error('Imagen inexistente')
+          throw new Error('Imagen inexistente' +req.file)
         }
       }
       else {
@@ -163,7 +163,7 @@ const validateEdit = [
         }
         else {
           console.log("en igual");
-          throw new Error('Imagen inexistente')
+          throw new Error('Imagen inexistente en igual')
         }
       };
     }),

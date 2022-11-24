@@ -66,7 +66,7 @@ function getEventos(req, res){
 function saveEvento(req, res,next){        
         const extension=req.file.originalname.slice(req.file.originalname.lastIndexOf('.'))                
         let nombre_archivo=Date.now()+extension
-        const newpath = `./public/uploads/eventos/${nombre_archivo}`;        
+        const newpath = `./public/web/data/eventos/${nombre_archivo}`;        
         fs.writeFileSync(newpath, req.file.buffer);       
         let in_redes_sociales=[]       
         if (typeof req.body.redes_sociales === 'string' || req.body.redes_sociales instanceof String)  

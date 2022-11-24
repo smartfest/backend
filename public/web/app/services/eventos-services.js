@@ -30,7 +30,6 @@ async function status() {
 
 function crearEvento(evento) {
     var data = new FormData();
-    console.log(evento)
     data.append("titulo", evento.titulo)
     data.append("descripcion", evento.descripcion)
     data.append("direccion", evento.direccion)
@@ -41,14 +40,14 @@ function crearEvento(evento) {
     data.append("redes_sociales", evento.redes_sociales)
     data.append("flyer", "")
 
-    console.log(evento.file)
-    fetch(env.API + `/evento?titulo=${evento.titulo}&fecha_evento=${evento.fecha_evento}&horario_inicio=${evento.horario_inicio}&descripcion=${evento.descripcion}
-                    &file=${evento.file}&redes_sociales=${evento.redes_sociales}&id_usuario=${1}`, {
+    console.log(evento)
+    let file=evento.file
+    fetch(env.API + `/evento`, {
         method: "POST", headers: {
             'Content-Type': 'multipart/form-data; boundary=<calculated when request is sent>'
-        }
+        },body:data
     })
-        .then(res => { console.log("Consulta POST Exitosa", res) })
+        .then(res => {console.log(res)})
         .catch(exp => { console.log("Consuslta POST Rechazada", exp) })
 
 }
