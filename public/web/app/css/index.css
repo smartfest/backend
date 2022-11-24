@@ -15,7 +15,6 @@
 }
 
 
-
 .banner {
     display: flex;
     flex-wrap: wrap;
@@ -41,8 +40,8 @@
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     display: flex;    
     justify-content: flex-start;
-    flex-wrap: wrap;/*cards colocados en varias lineas*/
-    gap:3em; /*espacio entre fias y columnas dentro del flex*/
+    flex-wrap: wrap;
+    gap:3em;
   }
 
 .card {
