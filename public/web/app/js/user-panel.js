@@ -1,4 +1,4 @@
-import { getEventos, getEventoById, crearEvento, status } from '../services/eventos-services.js'
+import { getEventos, getEventoById, crearEvento, status,editarEvento } from '../services/eventos-services.js'
 import { event_table } from '../components/event_table.js'
 import { evento } from '../components/evento.js'
 var input_event;
@@ -83,13 +83,31 @@ window.edit_event = function (id_evento) {
 
     const boton_save = document.getElementById("create|edit")
     boton_save.innerHTML=`<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    <button  type="button" class="btn btn-primary" onclick="edit_save()">Editar</button>`
+    <button  type="button" class="btn btn-primary" onclick="edit_save('${id_evento}')">Editar</button>`
   })
 }
 
-window.edit_save = function(){
+window.edit_save = function(id_evento){
 
-  
+  const form = document.getElementById("form");
+  form_data = new FormData(form)
+  let date = form_data.get("fecha_inicio")
+  let index = date.search("T")
+  let fecha = date.substring(0, index)
+
+  let cad_redes = '[{ "red":"facebook" ,"link":"' + form_data.get("facebook") + '"},{"red":"twiter", "link":"' + form_data.get("twitter") + '" }]'
+  const evento = {
+    id_usuario: 1,
+    direccion: form_data.get("direccion_evento"),
+    titulo: form_data.get("nombre_evento"),
+    file: form_data.get("flyer"),
+    fecha_evento: fecha,
+    horario_inicio: date.substring(index + 1) + ":00",
+    descripcion: form_data.get("descripcion"),
+    redes_sociales: cad_redes,
+
+  }
+  editarEvento(evento,id_evento)
 
 }
 

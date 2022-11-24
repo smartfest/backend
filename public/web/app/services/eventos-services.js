@@ -28,6 +28,36 @@ async function status() {
 }
 
 
+
+
+async function editarEvento(evento, id_evento) {
+
+    var data = new FormData();
+    data.append("titulo", evento.titulo)
+    data.append("descripcion", evento.descripcion)
+    data.append("direccion", evento.direccion)
+    data.append("file", evento.file)
+    data.append("id_usuario", evento.id_usuario)
+    data.append("fecha_evento", evento.fecha_evento)
+    data.append("horario_inicio", evento.horario_inicio)
+    data.append("redes_sociales", evento.redes_sociales)
+    data.append("flyer", "")
+
+
+    fetch(env.API + `/evento/`+id_evento, {
+        method: "PUT",
+        body: data
+    }).then(res => { console.log(res) })
+    .catch(exp => { console.log("Consuslta POST Rechazada", exp) })
+}
+
+
+
+
+
+
+
+
 function crearEvento(evento) {
     var data = new FormData();
     data.append("titulo", evento.titulo)
@@ -39,17 +69,16 @@ function crearEvento(evento) {
     data.append("horario_inicio", evento.horario_inicio)
     data.append("redes_sociales", evento.redes_sociales)
     data.append("flyer", "")
-    console.log(evento)
-    let file=evento.file
+
     fetch(env.API + `/evento`, {
         method: "POST",
-        body:data
+        body: data
     })
-        .then(res => {console.log(res)})
+        .then(res => { console.log(res) })
         .catch(exp => { console.log("Consuslta POST Rechazada", exp) })
 }
 async function getEventoById(id_evento) {
-    var data = fetch(env.API + '/evento/'+ id_evento)
+    var data = fetch(env.API + '/evento/' + id_evento)
         .then(respuesta => respuesta.json())
         .then(respuesta => {
             return Promise.resolve(respuesta.obj_evento);
@@ -59,4 +88,4 @@ async function getEventoById(id_evento) {
     return await data
 }
 
-export { getEventos, getEventoById, crearEvento, status }
+export { getEventos, getEventoById, crearEvento, status,editarEvento }
