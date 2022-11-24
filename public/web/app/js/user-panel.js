@@ -67,11 +67,12 @@ window.edit_event = function (id_evento) {
   const form = document.getElementById("form");
   let form_data = new FormData(form)
   getEventoById(id_evento).then(e => {
-    input_event.ubicacion.value = e.ubicacion
-    input_event.titulo.value = e.titulo;
-    input_event.fecha_inicio.value= e.fecha_evento
+    e=e.obj_evento
+   // input_event.ubicacion.value = e.ubicacion
+   input_event.titulo.value = e.titulo;
+  //  input_event.fecha_inicio.value= e.fecha_evento
     //input_event.flyer.value=e.flyer
-    input_event.descripcion.value=e.descripcion
+  input_event.descripcion.value=e.descripcion
   })
 
 

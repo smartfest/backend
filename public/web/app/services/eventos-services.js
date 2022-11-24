@@ -6,9 +6,6 @@ const env = {
 
 
 async function getEventos() {
-    let data = new FormData()
-    data.append("skip", 0)
-    data.append("limit", 6)
 
     return await fetch(env.API + `/eventos?limit=${10}&skip=${0}`
     )
@@ -44,22 +41,22 @@ function crearEvento(evento) {
     data.append("redes_sociales", evento.redes_sociales)
     data.append("flyer", "")
 
-
-    console.log(data)
-    fetch(env.API + '/evento', {
+    console.log(evento.file)
+    fetch(env.API + `/evento?titulo=${evento.titulo}&fecha_evento=${evento.fecha_evento}&horario_inicio=${evento.horario_inicio}&descripcion=${evento.descripcion}
+                    &file=${evento.file}&redes_sociales=${evento.redes_sociales}&id_usuario=${1}`, {
         method: "POST", headers: {
-            'Content-Type': 'application/json'
-        }, body: { mode: "formdata", formdata: data }
+            'Content-Type': 'multipart/form-data; boundary=<calculated when request is sent>'
+        }
     })
         .then(res => { console.log("Consulta POST Exitosa", res) })
         .catch(exp => { console.log("Consuslta POST Rechazada", exp) })
 
 }
 async function getEventoById(id_evento) {
-    var data = fetch(env.URL)
+    var data = fetch(env.API + '/evento/' + id_evento)
         .then(respuesta => respuesta.json())
         .then(respuesta => {
-            return Promise.resolve(respuesta.filter((evento) => { return id_evento === evento.id })[0]);
+            return Promise.resolve(respuesta);
         }).catch(() => {
             return Promise.reject(err);
         });

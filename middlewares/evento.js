@@ -134,7 +134,8 @@ const validateEdit = [
     }),
   check('file')
     .custom((value, { req }) => {
-      if (typeof (value) != "undefined") { //el archivo existe                            
+      if (typeof (value) != "undefined") { //el archivo existe        
+             
         if (req.file !== "" && req.file !== undefined) {
           console.log("aca2")
 
