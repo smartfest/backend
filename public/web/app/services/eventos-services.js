@@ -44,11 +44,11 @@ async function editarEvento(evento, id_evento) {
     data.append("flyer", "")
 
 
-    fetch(env.API + `/evento/`+id_evento, {
+   return await fetch(env.API + `/evento/`+id_evento, {
         method: "PUT",
         body: data
-    }).then(res => { console.log(res) })
-    .catch(exp => { console.log("Consuslta POST Rechazada", exp) })
+    }).then(res => { return Promise.resolve(res) })
+    .catch(exp => { return Promise.reject(exp) })
 }
 
 
@@ -58,7 +58,7 @@ async function editarEvento(evento, id_evento) {
 
 
 
-function crearEvento(evento) {
+async function crearEvento(evento) {
     var data = new FormData();
     data.append("titulo", evento.titulo)
     data.append("descripcion", evento.descripcion)
@@ -70,12 +70,12 @@ function crearEvento(evento) {
     data.append("redes_sociales", evento.redes_sociales)
     data.append("flyer", "")
 
-    fetch(env.API + `/evento`, {
+   return await fetch(env.API + `/evento`, {
         method: "POST",
         body: data
     })
-        .then(res => { console.log(res) })
-        .catch(exp => { console.log("Consuslta POST Rechazada", exp) })
+        .then(res => { return Promise().resolve(res) })
+        .catch(exp => { return Promise().reject(exp) })
 }
 async function getEventoById(id_evento) {
     var data = fetch(env.API + '/evento/' + id_evento)

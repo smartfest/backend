@@ -1,4 +1,4 @@
-import { getEventos, getEventoById, crearEvento, status,editarEvento } from '../services/eventos-services.js'
+import { getEventos, getEventoById, crearEvento, status, editarEvento } from '../services/eventos-services.js'
 import { event_table } from '../components/event_table.js'
 import { evento } from '../components/evento.js'
 var input_event;
@@ -59,14 +59,17 @@ window.save_event = function () {
     redes_sociales: cad_redes,
 
   }
-  crearEvento(evento)
+  crearEvento(evento).then((res) => {
+    alert("creado con exito")
+    location.reload ()
+  })
 
 }
 
 window.edit_event = function (id_evento) {
   getEventoById(id_evento).then(e => {
     let img = document.getElementById("img_edit")
-    img.src='../../data/eventos/'+e.flyer
+    img.src = '../../data/eventos/' + e.flyer
     let index = e.fecha_evento.search("T")
     let fecha = e.fecha_evento.substring(0, index)
     let hora = e.horario_inicio.substring(index + 1, index + 6)
@@ -82,12 +85,12 @@ window.edit_event = function (id_evento) {
 
 
     const boton_save = document.getElementById("create|edit")
-    boton_save.innerHTML=`<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    boton_save.innerHTML = `<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
     <button  type="button" class="btn btn-primary" onclick="edit_save('${id_evento}')">Editar</button>`
   })
 }
 
-window.edit_save = function(id_evento){
+window.edit_save = function (id_evento) {
 
   const form = document.getElementById("form");
   form_data = new FormData(form)
@@ -107,7 +110,11 @@ window.edit_save = function(id_evento){
     redes_sociales: cad_redes,
 
   }
-  editarEvento(evento,id_evento)
+  editarEvento(evento, id_evento).then((res) => {
+    alert("Editado con exito")
+    location.reload ()
+  }
+  )
 
 }
 
