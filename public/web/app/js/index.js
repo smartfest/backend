@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 function create_panel() {
     getEventos().then(eventos => {
-        eventos.forEach(element => {
+        eventos.eventos.forEach(element => {
+            console.log(element)
             panel.innerHTML += card(element);
         });
     });

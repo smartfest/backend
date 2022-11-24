@@ -2,7 +2,7 @@ function evento(evento) {
     return `
 <h1 class="titulo">${evento.titulo}fest</h1>
 <br>
-<img class="flyer" src="${" ../" + evento.flyer}" alt="Evento " ${evento.descripcion}>
+<img class="flyer" src="../../../uploads/${evento.flyer}" alt="Evento " ${evento.descripcion}>
 <div class="informacion">
         <div>
         <h5>Ubicacion: ${evento.ubicacion}</h5>
