@@ -27,6 +27,16 @@ async function status() {
         });
 }
 
+async function eliminarEvento(id_evento) {
+    return await fetch(env.API + '/evento/' + id_evento, { method: "DELETE" })
+        .then(respuesta => {
+            return Promise.resolve(respuesta.json());
+        }).catch((e) => {
+            console.log(e)
+            return Promise.reject("No status");
+        });
+}
+
 
 
 
@@ -44,11 +54,11 @@ async function editarEvento(evento, id_evento) {
     data.append("flyer", "")
 
 
-   return await fetch(env.API + `/evento/`+id_evento, {
+    return await fetch(env.API + `/evento/` + id_evento, {
         method: "PUT",
         body: data
     }).then(res => { return Promise.resolve(res) })
-    .catch(exp => { return Promise.reject(exp) })
+        .catch(exp => { return Promise.reject(exp) })
 }
 
 
@@ -70,12 +80,14 @@ async function crearEvento(evento) {
     data.append("redes_sociales", evento.redes_sociales)
     data.append("flyer", "")
 
-   return await fetch(env.API + `/evento`, {
+    var t = fetch(env.API + `/evento`, {
         method: "POST",
         body: data
     })
         .then(res => { return Promise().resolve(res) })
         .catch(exp => { return Promise().reject(exp) })
+
+    return await t
 }
 async function getEventoById(id_evento) {
     var data = fetch(env.API + '/evento/' + id_evento)
@@ -88,4 +100,4 @@ async function getEventoById(id_evento) {
     return await data
 }
 
-export { getEventos, getEventoById, crearEvento, status,editarEvento }
+export { getEventos, getEventoById, crearEvento, status, editarEvento, eliminarEvento }

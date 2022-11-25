@@ -101,7 +101,7 @@ function deleteEvento(req,res){
       if (!eventoReturn) return res.status(404).send({message:'El evento no existe'})           
       //eliminamos la imagen del flyer:
       try {
-        fs.unlinkSync('./public/uploads/eventos/'+eventoReturn.flyer)        
+        fs.unlinkSync('./public/web/data/eventos/'+eventoReturn.flyer)        
       } catch(err) {        
         return res.status(404).send({message:'Problemas en la edicion del archivo'})  
       }          

@@ -1,4 +1,4 @@
-import { getEventos, getEventoById, crearEvento, status, editarEvento } from '../services/eventos-services.js'
+import { getEventos, getEventoById, crearEvento, status, editarEvento,eliminarEvento } from '../services/eventos-services.js'
 import { event_table } from '../components/event_table.js'
 import { evento } from '../components/evento.js'
 var input_event;
@@ -38,6 +38,12 @@ window.create_event = function (id_evento) {
 window.delete_event = function (id_evento) {
   let event = document.getElementById("evento-" + id_evento);
   event.innerHTML = " "
+
+  eliminarEvento(id_evento).then(()=>{
+    alert("Evento eliminado con exito")
+  }).catch(err =>{
+    alert("Fallo en eliminacion "+JSON.stringify(err))
+  })
 }
 
 window.save_event = function () {
