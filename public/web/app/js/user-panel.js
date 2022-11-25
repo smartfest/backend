@@ -119,7 +119,7 @@ window.edit_save = function (id_evento) {
 
   }
 
-  editarEvento(evento, id_evento).then((res) => {
+  editarEvento(evento, id_evento).then((res) => {    
     alert("Editado con exito")
     location.reload ()
   }

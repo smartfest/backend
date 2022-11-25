@@ -95,20 +95,26 @@ function saveEvento(req, res,next){
 }
 function deleteEvento(req,res){
     let eventoId=req.params.eventoId    
+    console.log(eventoId);
     Evento.findById(eventoId, (err, eventoReturn) =>{
 
+      //verificamos si el evento a eliminar existe:
       if (err) return res.status(500).send({message:'Error al borrar el evento, no existe'})
-      if (!eventoReturn) return res.status(404).send({message:'El evento no existe'})           
+      if (!eventoReturn) return res.status(404).send({message:'El evento no existe'})          
       //eliminamos la imagen del flyer:
+      let imagen='./public/web/data/eventos/'+eventoReturn.flyer      
       try {
-        fs.unlinkSync('./public/web/data/eventos/'+eventoReturn.flyer)        
+        fs.unlinkSync(imagen)        
       } catch(err) {        
-        return res.status(404).send({message:'Problemas en la edicion del archivo'})  
-      }          
-      evento.remove(err => {
-        if (err) return res.status(404).send({message:'El evento no  se ha podido eliminar'})
-        return res.status(200).send({message:'El evento se ha eliminó correctamente'})
-        })      
+        return res.status(404).send({message:'Problemas en la eliminación del archivo. Probablemente no se encontro la imagen'})  
+      }                         
+          
+         eventoReturn.remove(err => {
+             if (err) res.status(404).send({message:'El evento se ha podido eliminar'})
+             res.status(200).send({message:'El evento se ha eliminado correctamente'})
+         })    
+       
+     
     })
 }
 

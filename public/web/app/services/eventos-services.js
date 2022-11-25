@@ -57,8 +57,10 @@ async function editarEvento(evento, id_evento) {
     return await fetch(env.API + `/evento/` + id_evento, {
         method: "PUT",
         body: data
-    }).then(res => { return Promise.resolve(res) })
-        .catch(exp => { return Promise.reject(exp) })
+    }).then(res => { 
+         return Promise.resolve(res) 
+        })
+        .catch(exp => {  return Promise.reject(exp) })
 }
 
 
